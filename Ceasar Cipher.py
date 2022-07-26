@@ -4,8 +4,11 @@ import os
 
 from art import logo
 from lists import alphabet, numbers
+<<<<<<< HEAD
 from decode import decoding
 from encode import encoding
+=======
+>>>>>>> d65b5e6ffb87b2d49e07fd0d225f3aed3bf3de90
 
 clear = lambda: os.system("clear")
 
