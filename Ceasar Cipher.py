@@ -5,7 +5,6 @@ import os
 from art import logo
 from lists import alphabet, numbers
 
-
 clear = lambda: os.system("clear")
 
 def encoding(message, number):
