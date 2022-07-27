@@ -2,45 +2,22 @@
 
 import os
 
+from ceasar import ceasar
 from art import logo
 from lists import alphabet, numbers
-<<<<<<< HEAD
-from decode import decoding
-from encode import encoding
-=======
->>>>>>> d65b5e6ffb87b2d49e07fd0d225f3aed3bf3de90
 
 clear = lambda: os.system("clear")
 
-flag = True
-flag_2 = True
-result = 0
-
 print(logo)
-while flag:
-    choice = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-    if choice.lower() == "encode" or choice.lower() == "decode":  
-        message = input("Type your message:\n")
-        while flag_2:
-            shift_number = int(input("Type the shift number:\n"))
-            if shift_number in range(0, 52):    
-                if choice == "encode":
-                    result = encoding(message, shift_number)
-                    print(f"Here's the encoded result: {result}!")
-                elif choice == "decode":
-                    result = decoding(message, shift_number)
-                    print(f"Here's the decoded result: {result}")
-                break
-            else: 
-                continue
-        next = input("Type 'yes' if you want to go again. Otherwise type 'no'\n")
-        if next == "yes":
-            continue
-        else:
-            flag = False
-    else:
-        clear()
-        continue
-    if next.lower() == "no":
-        flag = False
+
+while True:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message.\n").lower()
+    shift_number = int(input("Type the shift number.\n"))
+    while shift_number > len(alphabet):
+        shift_number = int(input(f"Type the shift number, smaller than {len(alphabet)}.\n"))
+    ceasar(direction=direction, start_text=text, shift_number=shift_number)
+    next = input("Type 'yes' if you want to go again. Otherwise type 'no'\n")
+    if next == "no":
+        break
     
